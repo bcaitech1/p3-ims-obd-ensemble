@@ -1,0 +1,11 @@
+input
+
+.ipynb_checkpoints
+__pycache__
+.vscode
+
+log
+module
+saved
+submission
+Pre_trained
