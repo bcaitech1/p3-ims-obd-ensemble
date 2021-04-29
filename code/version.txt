@@ -1,0 +1,5 @@
+v01 : baseline
+v02 : EMANet epoch 20 lr 1e-6 0.3659/
+v03 : EMANet epoch 60 lr 1e-6 0.4807/0.6122
+v04 : EMANet epoch 40 lr 5e-5 
+v05 : EMANet 
