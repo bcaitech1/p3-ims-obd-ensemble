@@ -1,6 +1,6 @@
 {
-    "encoder": "resnest200",
-    "decoder": "DeepLabV3",
+    "encoder": "resnest101",
+    "decoder": "UperNet",
     "img_size": 512,
     "num_workers": 4,
     "batch_size": 4,
