@@ -2,7 +2,7 @@ import torch
 import numpy as np 
 import albumentations as A
 import torchvision.transforms as transforms
-
+import pandas as pd
 def test(model, test_loader):
     size = 256
     transform = A.Compose([A.Resize(256, 256)])
