@@ -432,7 +432,7 @@ class HighResolutionNet(nn.Module):
 
         self.stage1_cfg = {
             'NUM_MODULES': 1,
-            'NUM_RANCHES': 1,
+            'NUM_BRANCHES': 1,
             'BLOCK': 'BOTTLENECK',
             'NUM_BLOCKS': [1],
             'NUM_CHANNELS': [64],
