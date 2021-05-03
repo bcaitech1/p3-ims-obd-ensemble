@@ -59,19 +59,19 @@ class CategoryChannelDataset(Dataset):
             # masks : size가 (height x width)인 2D
             # 각각의 pixel 값에는 "category id + 1" 할당
             # Background = 0
-            masks = np.zeros((12, image_infos["height"], image_infos["width"]))
+            masks = [np.zeros((image_infos["height"], image_infos["width"])) for i in range(0, 11)]
             # Unknown = 1, General trash = 2, ... , Cigarette = 11
             for i in range(len(anns)):
                 className = get_classname(anns[i]['category_id'], cats)
                 pixel_value = category_names.index(className)
-                masks[pixel_value] = np.maximum(self.coco.annToMask(anns[i]), masks[pixel_value])
-            masks = masks.astype(np.float32)
+                masks[pixel_value - 1] = np.maximum(self.coco.annToMask(anns[i]), masks[pixel_value - 1])
+            masks = [mask.astype(np.float32) for mask in masks]
             # transform -> albumentations 라이브러리 활용
             if self.transform is not None:
-                transformed = self.transform(image=images, mask= masks)
+                transformed = self.transform(image=images, masks= masks)
                 images = transformed["image"]
-                masks = transformed["mask"]
-            
+                masks = torch.tensor(transformed["masks"])
+
             return images, masks, image_infos
         
         if self.mode == 'test':
