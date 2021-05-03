@@ -68,16 +68,9 @@ class CategoryChannelDataset(Dataset):
             masks = masks.astype(np.float32)
             # transform -> albumentations 라이브러리 활용
             if self.transform is not None:
-                transformed = self.transform(image=images, 
-                                             mask_0=masks[0], mask_1=masks[1],
-                                             mask_2=masks[2], mask_3=masks[3],
-                                             mask_4=masks[4], mask_5=masks[5],
-                                             mask_6=masks[6], mask_7=masks[7],
-                                             mask_8=masks[8], mask_9=masks[9],
-                                             mask_10=masks[10], mask_11=masks[11])
+                transformed = self.transform(image=images, mask= masks)
                 images = transformed["image"]
-                for i in range(len(masks)):
-                    masks[i] = transformed[f"mask_{i}"]
+                masks = transformed["mask"]
             
             return images, masks, image_infos
         
@@ -93,3 +86,11 @@ class CategoryChannelDataset(Dataset):
     def __len__(self) -> int:
         # 전체 dataset의 size를 return
         return len(self.coco.getImgIds())
+
+if __name__=="__main__":
+    train_transform = A.Compose([
+                            ToTensorV2()
+                            ])
+    train_path = "/opt/ml/input/data/train.json"
+    dataset = CategoryChannelDataset(data_dir=train_path, dataset_path = "/opt/ml/input/data",mode='train', transform=train_transform)
+    img, masks, info = dataset[0]
