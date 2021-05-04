@@ -14,5 +14,5 @@
     "loss": "CELoss",
     "pretrained": "swsl",
     "mix_prob": 0.5,
-    "pseudo_label": True
+    "pseudo_label": "True"
 }
