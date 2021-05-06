@@ -165,30 +165,45 @@ class DatasetByCategory(Dataset):
         # 전체 dataset의 size를 return
         return len(self.coco.getImgIds())
 
-def save_mask_(dataset, save_dir):
-    for img, mask, img_info in dataset:
-        file_name = img_info['file_name']
-        file_path = os.path.join(save_dir, file_name)
-        plt.imsave(file_path, mask)
 
 if __name__=="__main__":
     dataset_path = '/opt/ml/input/data'
     save_path = '/opt/ml/input/label'
 
-    train_path = "/opt/ml/input/data/train_all.json"
+    train_path = "/opt/ml/input/data/train.json"
     val_path = "/opt/ml/input/data/val.json"
 
     train_transform = A.Compose([
                             ToTensorV2()
                             ])
     
-    dataloader_list = []
     for i in range(1, 12):
+        train_list = open(os.path.join(dataset_path, f"train_{category_names[i]}_list.txt"), 'w')
         dataset = DatasetByCategory(data_dir=train_path, category= i, mode='train', transform=train_transform)
         dataloader = DataLoader(dataset, batch_size=12, collate_fn=collate_fn)
-        dataloader_list.append(dataloader)
-    
+        label_dir = os.path.join(save_path, category_names[i])
+        for imgs, masks, infos in dataloader:
+            for img, mask, info in zip(imgs, masks, infos):
+                img_path = os.path.join(dataset_path, info["file_name"])
+                label_path = os.path.join(label_dir, info["file_name"])
+                temp = img_path + " " + label_path + "\n"
+                train_list.write(temp)
+        train_list.close()
 
+    for i in range(1, 12):
+        train_list = open(os.path.join(dataset_path, f"val_{category_names[i]}_list.txt"), 'w')
+        dataset = DatasetByCategory(data_dir=val_path, category= i, mode='train', transform=train_transform)
+        dataloader = DataLoader(dataset, batch_size=12, collate_fn=collate_fn)
+        label_dir = os.path.join(save_path, category_names[i])
+        for imgs, masks, infos in dataloader:
+            for img, mask, info in zip(imgs, masks, infos):
+                img_path = os.path.join(dataset_path, info["file_name"])
+                label_path = os.path.join(label_dir, info["file_name"])
+                temp = img_path + " " + label_path + "\n"
+                train_list.write(temp)
+        train_list.close()
+    
+    '''
     for i in range(1, 12):
         category_name = category_names[i]
         dir_path = os.path.join(save_path, category_name)
@@ -198,3 +213,4 @@ if __name__=="__main__":
             os.mkdir(os.path.join(dir_path, "batch_02_vt"))
             os.mkdir(os.path.join(dir_path, "batch_03"))
         save_mask(dataloader_list[i-1], dir_path)
+    '''
