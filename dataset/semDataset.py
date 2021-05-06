@@ -124,8 +124,8 @@ class SemDataset(Dataset):
             
             return main_img_idx, sub_img_idx
         else:
-            main_img_idx = list(self.coco.getCatIds())
-            sub_img_idx = random.choices(list(self.sub_img_coco.getImgIds()), k=len(main_img_idx))
+            main_img_idx = list(self.test_img_coco.getCatIds())
+            sub_img_idx = random.choices(list(self.coco.getImgIds()), k=len(main_img_idx))
             return main_img_idx, sub_img_idx
             
     def __len__(self):
@@ -213,13 +213,13 @@ class SemDataset(Dataset):
             if self.transform is not None:
                 trans = self.transform(image=main_img)
                 main_img = trans['image']
-                trans = self.transform(image=sub_img, mask=sub_masks)
+                trans = self.transform(image=sub_img, mask=sub_mask)
                 sub_img = trans['image']
                 sub_mask = trans['mask']
             
             seed = self.get_seed(sub_img, sub_mask.unsqueeze(0))
             
-            return main_img, None, sub_img, sub_mask, seed
+            return main_img, None, sub_img.unsqueeze(0), sub_mask.unsqueeze(0), seed, main_img_info
 
 
 if __name__=="__main__":    
