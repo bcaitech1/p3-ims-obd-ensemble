@@ -1,0 +1,23 @@
+{
+    "encoder": "resnext50_32x4d",
+    "decoder": "UneXt",
+    "img_size": 512,
+    "num_workers": 4,
+    "batch_size": 8,
+    "epochs": 20,
+    "lr": 1e-4,
+    "weight_decay": 1e-6,
+    "gradient_accumulation_steps": 4,
+    "seed": 42,
+    "optimizer": "AdamW",
+    "scheduler": "Warmup",
+    "loss": "SoftCELoss",
+    "pretrained": "swsl",
+    "mix_prob": 0,
+    "pseudo_label": "true",
+    "fold_num": 5,
+    "save_folder": "./save/unext",
+    "root": "./dataset",
+    "test_dir": "./dataset/test.json",
+    "save_mask": "true"
+}

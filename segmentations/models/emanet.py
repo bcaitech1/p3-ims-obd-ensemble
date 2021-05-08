@@ -1,6 +1,9 @@
 import queue
 import collections
 import threading
+import numpy as np
+from torch import nn
+import torch
 
 __all__ = ['FutureResult', 'SlavePipe', 'SyncMaster']
 

@@ -1,8 +1,9 @@
 from fastai.vision.all import *
-from torch improt nn
+import torch
+from torch import nn
 from torch.nn import functional as F
 
-import torch
+
 
 class FPN(nn.Module):
     def __init__(self, input_channels:list, output_channels:list):
