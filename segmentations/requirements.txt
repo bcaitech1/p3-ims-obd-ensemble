@@ -1,0 +1,5 @@
+fastai
+segmentation_models_pytorch
+timm
+albumentations
+pycocotools

@@ -1,0 +1,17 @@
+{
+    "encoder": "timm-efficientnet-b6",
+    "decoder": "DeepLabV3Plus",
+    "img_size": 512,
+    "num_workers": 4,
+    "batch_size": 4,
+    "epochs": 50,
+    "learning_rate": 1e-4,
+    "weight_decay": "None",
+    "gradient_accumulation_steps": 4,
+    "seed": 42,
+    "optimizer": "Adam",
+    "scheduler": "Warmup",
+    "loss": "CustomLoss",
+    "pretrained": "noisy-student"
+
+}
