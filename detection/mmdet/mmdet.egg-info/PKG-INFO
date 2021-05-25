@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: mmdet
+Version: 2.11.0
+Summary: OpenMMLab Detection Toolbox and Benchmark
+Home-page: https://github.com/open-mmlab/mmdetection
+Author: OpenMMLab
+Author-email: openmmlab@gmail.com
+License: Apache License 2.0
+Description: ## Install
+        1. `conda install pytorch=1.6.0 cudatoolkit=10.1 torchvision -c pytorch`
+        
+        2. `pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu101/torch1.6.0/index.html`
+        
+        3. `pip install -r requirements.txt`
+        
+        4. `pip install -v -e .`
+        
+        ## notebook
+        ### train
+        [faster_rcnn_train.ipynb](https://github.com/Pstage-Segmentation-Detection/mmdetection_trash/blob/master/faster_rcnn_train.ipynb)
+        ### inference
+        [faster_rcnn_inference.ipynb](https://github.com/Pstage-Segmentation-Detection/mmdetection_trash/blob/master/faster_rcnn_inference.ipynb)
+        
+        ## python
+        ### train
+        `python tools/train.py configs/trash/faster_rcnn/faster_rcnn_r50_fpn_1x_trash.py`
+        ### inference
+        `python tools/test.py configs/trash/faster_rcnn/faster_rcnn_r50_fpn_1x_trash.py work_dirs/faster_rcnn_r50_fpn_1x_trash/epoch_12.pth --out work_dirs/faster_rcnn_r50_fpn_1x_trash/epoch_12.pkl`
+        ### make submission
+        `python pkl_to_submission.py --pkl work_dirs/faster_rcnn_r50_fpn_1x_trash/epoch_12.pkl --csv submission.csv`
+        ### submission file
+        `mmdetection_trash > submission.csv`
+        
+Keywords: computer vision,object detection
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Provides-Extra: all
+Provides-Extra: tests
+Provides-Extra: build
+Provides-Extra: optional
