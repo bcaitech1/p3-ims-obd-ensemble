@@ -37,6 +37,21 @@ $> tree -d
 * **scheduler**
       * customcosine
 
+### [HyeongMin_dev](https://github.com/bcaitech1/p3-ims-obd-ensemble/tree/HyeongMin_dev/Segmentation)
+
+```
+$> tree -d
+.
+├── Segmentaion
+│     └── ...
+└── detection
+      └── ...
+```
+
+* **model**: resnext50_32x4d + DeepLabV3+ 
+
+However, because used smp, you can use others in smp
+
 ### [JunCheol_dev](https://github.com/bcaitech1/p3-ims-obd-ensemble/tree/JunCheol_dev/Segmentation)
 
 ```
@@ -121,6 +136,23 @@ $> tree -d
 **mmdet**
 
 * universNet
+
+### [HyeongMin_dev](https://github.com/bcaitech1/p3-ims-obd-ensemble/tree/HyeongMin_dev/Object_Detection)
+
+```
+$> tree -d
+.
+├── segmentaion
+│     └── ...
+└── ObjectDetection
+      ├── Swin-Transformer-Object-Detection
+      └── ...
+```
+
+**mmdet**
+
+* detectoRS + ResNeXt101
+
 
 ### [JunCheol_dev](https://github.com/bcaitech1/p3-ims-obd-ensemble/tree/JunCheol_dev/ObjectDetection)
 
