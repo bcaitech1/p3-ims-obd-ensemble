@@ -1,6 +1,22 @@
 # p3-ims-obd-ensemble
 
 > BoostCamp AI Tech P Stage stage3 Image Segmentation
+## List
+
+* Segmentation   
+      * JooYoung_dev   
+      * HyeongMing_dev   
+      * JunCheol_dev    
+      * Kimin_dev    
+      * MinJung_dev   
+      * NuRee_dev   
+* Detection   
+      * JooYoung_dev   
+      * HyeongMing_dev   
+      * JunCheol_dev    
+      * Kimin_dev    
+      * MinJung_dev   
+      * NuRee_dev   
 
 
 ## Segmentation    
