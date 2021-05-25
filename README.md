@@ -24,15 +24,15 @@ $> tree -d
       └── ...
 ```
 
-* **config**
-      * efficient b2/b6 + unet++
-      * efficient b4/b6 + deepLabV3+
-      * effunext
-      * resnext101 + upernet
-      * resnext50 + deepLabV3+
-      * unext
-* **losses**
-      * dice_ce_loss
+* **config**    
+      * efficient b2/b6 + unet++    
+      * efficient b4/b6 + deepLabV3+    
+      * effunext    
+      * resnext101 + upernet    
+      * resnext50 + deepLabV3+     
+      * unext    
+* **losses**    
+      * dice_ce_loss     
       * soft_ce_loss
 * **scheduler**
       * customcosine
@@ -49,11 +49,11 @@ $> tree -d
       └── ...
 ```
 
-* **ppt_paper**
-      * segmentation_survey_2020.pdf
-      * Rethinking Pre-training and Self-training.pptm
-      * Imgage Segmentation.pptx
-      * EDA.pptx
+* **ppt_paper**   
+      * segmentation_survey_2020.pdf     
+      * Rethinking Pre-training and Self-training.pptx    
+      * Imgage Segmentation.pptx    
+      * EDA.pptx    
 * **model**: emanet
 
 ### [Kimin_dev](https://github.com/bcaitech1/p3-ims-obd-ensemble/tree/Kimin_dev/segmentations)
@@ -85,9 +85,9 @@ $> tree -d
       └── ...
 ```
 
-* **lib**
-      * asgnet
-      * hrdnet
+* **lib**  
+      * asgnet   
+      * hrdnet   
 
 
 ### [NuRee_dev](https://github.com/bcaitech1/p3-ims-obd-ensemble/tree/NuRee_dev/segmentation)
